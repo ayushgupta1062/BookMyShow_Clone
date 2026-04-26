@@ -34,7 +34,8 @@ A full-stack, feature-rich cinema booking application built with **Spring Boot**
 
 ## 📸 Screenshots
 
-![Main Dashboard](https://raw.githubusercontent.com/ayushgupta1062/BookMyShow_Clone/main/screenshots/dashboard.png)
+![Main Dashboard](![Uploading Screenshot 2026-04-27 011001.png…]()
+)
 *Modern Home Page with Trending Movies*
 
 ![Booking Page](https://raw.githubusercontent.com/ayushgupta1062/BookMyShow_Clone/main/screenshots/booking.png)
