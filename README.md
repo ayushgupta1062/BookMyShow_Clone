@@ -38,10 +38,12 @@ A full-stack, feature-rich cinema booking application built with **Spring Boot**
 
 *Modern Home Page with Trending Movies*
 
-![Booking Page](https://raw.githubusercontent.com/ayushgupta1062/BookMyShow_Clone/main/screenshots/booking.png)
+<img width="1907" height="917" alt="Screenshot 2026-04-27 011348" src="https://github.com/user-attachments/assets/48e0bfef-2335-4ff3-b785-81b6e3693763" />
+
 *Interactive Seat Selection UI*
 
-![Profile View](https://raw.githubusercontent.com/ayushgupta1062/BookMyShow_Clone/main/screenshots/profile.png)
+<img width="1914" height="924" alt="Screenshot 2026-04-27 011514" src="https://github.com/user-attachments/assets/400424c6-fba7-40a2-8a06-df1d58cf3375" />
+
 *User Booking History & Profile*
 
 ---
