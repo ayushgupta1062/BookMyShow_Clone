@@ -92,37 +92,29 @@ public class BookingService {
     {
         Booking booking=bookingRepository.findById(id)
                 .orElseThrow(()->new ResourceNotFoundException("Booking Not Found"));
-        List<ShowSeat> seats=showSeatRepository.findAll()
-                .stream().
-                filter(seat->seat.getBooking()!=null && seat.getBooking().getId().equals(booking.getId()))
-                .collect(Collectors.toList());
+        List<ShowSeat> seats = showSeatRepository.findByBookingId(booking.getId());
         return mapToBookingDto(booking,seats);
     }
 
-    private BookingDto getBookingByNumber(String bookingNumber)
+    public BookingDto getBookingByNumber(String bookingNumber)
     {
         Booking booking=bookingRepository.findByBookingNumber(bookingNumber)
                 .orElseThrow(()->new ResourceNotFoundException("Booking Not Found"));
-        List<ShowSeat> seats=showSeatRepository.findAll()
-                .stream().
-                filter(seat->seat.getBooking()!=null && seat.getBooking().getId().equals(booking.getId()))
-                .collect(Collectors.toList());
+        List<ShowSeat> seats = showSeatRepository.findByBookingId(booking.getId());
         return mapToBookingDto(booking,seats);
     }
 
-    private List<BookingDto> getBookingByUserId(Long userId)
+    public List<BookingDto> getBookingByUserId(Long userId)
     {
+        System.out.println("DEBUG: Fetching bookings for userId: " + userId);
         List<Booking> bookings = bookingRepository.findByUserId(userId);
+        System.out.println("DEBUG: Found " + bookings.size() + " bookings for user " + userId);
         return bookings.stream()
                 .map(booking -> {
-                    List<ShowSeat> seats=showSeatRepository.findAll()
-                            .stream().
-                            filter(seat->seat.getBooking()!=null && seat.getBooking().getId().equals(booking.getId()))
-                            .collect(Collectors.toList());
+                    List<ShowSeat> seats = showSeatRepository.findByBookingId(booking.getId());
                     return mapToBookingDto(booking,seats);
                 })
                 .collect(Collectors.toList());
-
     }
 
     @Transactional
@@ -161,7 +153,7 @@ public class BookingService {
         bookingDto.setId(booking.getId());
         bookingDto.setBookingNumber(booking.getBookingNumber());
         bookingDto.setBookingTime(booking.getBookingTime());
-        bookingDto.setStatus(bookingDto.getStatus());
+        bookingDto.setStatus(booking.getStatus());
         bookingDto.setTotalAmount(booking.getTotalAmount());
 
         //user
@@ -196,11 +188,11 @@ public class BookingService {
 
 
         TheaterDto theaterDto=new TheaterDto();
-        theaterDto.setId(bookingDto.getShow().getScreen().getTheater().getId());
-        theaterDto.setName(bookingDto.getShow().getScreen().getTheater().getName());
-        theaterDto.setAddress(bookingDto.getShow().getScreen().getTheater().getAddress());
-        theaterDto.setCity(bookingDto.getShow().getScreen().getTheater().getCity());
-        theaterDto.setTotalScreens(bookingDto.getShow().getScreen().getTheater().getTotalScreens());
+        theaterDto.setId(booking.getShow().getScreen().getTheater().getId());
+        theaterDto.setName(booking.getShow().getScreen().getTheater().getName());
+        theaterDto.setAddress(booking.getShow().getScreen().getTheater().getAddress());
+        theaterDto.setCity(booking.getShow().getScreen().getTheater().getCity());
+        theaterDto.setTotalScreens(booking.getShow().getScreen().getTheater().getTotalScreens());
 
         screenDto.setTheater(theaterDto);
         showDto.setScreen(screenDto);

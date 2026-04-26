@@ -17,4 +17,5 @@ public class MovieDto {
     private Integer durationMins;
     private String releaseDate;
     private String posterUrl;
+    private String backdropUrl;
 }

@@ -48,14 +48,14 @@ public class MovieService {
 
     public List<MovieDto> getMovieByGenre(String genre)
     {
-        List<Movie> movies=movieRepository.findByLanguage(genre);
+        List<Movie> movies=movieRepository.findByGenre(genre);
         return movies.stream()
                 .map(this::mapToDto)
                 .collect(Collectors.toList());
     }
     public List<MovieDto> searchMovies(String title)
     {
-        List<Movie> movies=movieRepository.findByLanguage(title);
+        List<Movie> movies=movieRepository.findByTitleContainingIgnoreCase(title);
         return movies.stream()
                 .map(this::mapToDto)
                 .collect(Collectors.toList());
@@ -73,6 +73,7 @@ public class MovieService {
         movie.setDurationMins(movieDto.getDurationMins());
         movie.setReleaseDate(movieDto.getReleaseDate());
         movie.setPosterUrl(movieDto.getPosterUrl());
+        movie.setBackdropUrl(movieDto.getBackdropUrl());
 
         Movie updatedMovie = movieRepository.save(movie);
         return mapToDto(updatedMovie);
@@ -97,6 +98,7 @@ public class MovieService {
         movieDto.setDurationMins(movie.getDurationMins());
         movieDto.setReleaseDate(movie.getReleaseDate());
         movieDto.setPosterUrl(movie.getPosterUrl());
+        movieDto.setBackdropUrl(movie.getBackdropUrl());
         return movieDto;
     }
 
@@ -110,6 +112,7 @@ public class MovieService {
         movie.setDurationMins(movieDto.getDurationMins());
         movie.setReleaseDate(movieDto.getReleaseDate());
         movie.setPosterUrl(movieDto.getPosterUrl());
+        movie.setBackdropUrl(movieDto.getBackdropUrl());
         return movie;
     }
 }

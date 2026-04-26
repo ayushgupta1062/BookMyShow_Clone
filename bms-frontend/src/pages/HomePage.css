@@ -1,0 +1,94 @@
+.hero-section {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  margin-top: -80px; /* offset navbar */
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  filter: blur(8px) brightness(0.6);
+  transform: scale(1.05); /* hide blur edges */
+}
+.hero-bg-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #101020, #080810);
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(8,8,16,1) 0%, rgba(8,8,16,0.7) 50%, transparent 100%),
+              linear-gradient(to top, rgba(8,8,16,1) 0%, transparent 40%);
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin-left: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.mb-3 { margin-bottom: 12px; }
+.mb-4 { margin-bottom: 24px; }
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  background: linear-gradient(to right, #fff, #d0d0e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.glass-btn {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+}
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+}
+.view-all-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.view-all-link:hover { color: var(--accent); }
+
+@media (max-width: 768px) {
+  .hero-section { min-height: 70vh; }
+  .hero-overlay {
+    background: linear-gradient(to top, rgba(8,8,16,1) 0%, rgba(8,8,16,0.6) 100%);
+  }
+  .hero-title { font-size: 2.5rem; }
+  .hero-actions { flex-direction: column; width: 100%; }
+  .hero-actions a { width: 100%; text-align: center; }
+}

@@ -1,0 +1,100 @@
+.movie-banner {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  margin-top: -80px;
+  padding-top: 100px;
+  padding-bottom: 40px;
+  overflow: hidden;
+}
+.banner-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 20%;
+  filter: blur(20px) brightness(0.3);
+  transform: scale(1.1);
+  z-index: 0;
+}
+.banner-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+.detail-poster {
+  width: 260px;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  border: 1px solid var(--border);
+}
+.detail-info { flex: 1; }
+.detail-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.detail-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+.detail-desc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+  max-width: 800px;
+}
+.shows-section { padding: 60px 24px; }
+.date-selector {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 40px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+.date-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 20px;
+  min-width: 80px;
+  cursor: pointer;
+  color: white;
+  transition: var(--transition);
+  text-align: center;
+}
+.date-btn:hover { border-color: var(--border-hover); background: rgba(255,255,255,0.08); }
+.date-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow);
+}
+.date-month { font-size: 0.8rem; text-transform: uppercase; margin-bottom: 4px; opacity: 0.8; }
+.date-day { font-size: 1.5rem; font-weight: 700; }
+.theater-list { display: flex; flex-direction: column; gap: 20px; }
+.theater-item { padding: 24px; }
+.theater-name { font-size: 1.2rem; margin-bottom: 16px; font-weight: 600; }
+.show-times { display: flex; gap: 12px; flex-wrap: wrap; }
+.time-btn {
+  display: inline-block;
+  text-decoration: none;
+  background: transparent;
+  color: #4ade80;
+  border: 1px solid rgba(74,222,128,0.4);
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: var(--transition);
+}
+.time-btn:hover { background: rgba(74,222,128,0.1); border-color: #4ade80; }
+
+@media (max-width: 768px) {
+  .banner-content { flex-direction: column; text-align: center; }
+  .detail-meta { justify-content: center; flex-wrap: wrap; }
+}

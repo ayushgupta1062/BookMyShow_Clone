@@ -16,12 +16,12 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; //table
+    private Long id;
 
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
@@ -30,7 +30,10 @@ public class User {
     @Column(nullable = false)
     private String phoneNumber;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    @Column(nullable = false)
+    private String role = "ROLE_USER"; // ROLE_USER | ROLE_ADMIN
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Booking> bookings;
 
-}
+}

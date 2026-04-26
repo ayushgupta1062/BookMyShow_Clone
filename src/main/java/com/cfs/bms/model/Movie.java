@@ -26,6 +26,7 @@ public class Movie {
     private Integer durationMins;
     private String releaseDate;
     private String posterUrl;
+    private String backdropUrl;
 
     @OneToMany(mappedBy = "movie",cascade = CascadeType.ALL)
     private List<Show> shows;

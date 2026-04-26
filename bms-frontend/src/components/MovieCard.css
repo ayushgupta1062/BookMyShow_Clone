@@ -1,0 +1,121 @@
+.movie-card {
+  display: block;
+  text-decoration: none;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: var(--accent);
+  box-shadow: 0 20px 60px rgba(229, 9, 20, 0.2);
+}
+
+.movie-poster-wrap {
+  position: relative;
+  aspect-ratio: 2/3;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.movie-poster-wrap {
+  aspect-ratio: 2/2.6;
+}
+
+.movie-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(0.92);
+}
+
+.movie-card:hover .movie-poster {
+  transform: scale(1.05);
+}
+
+.movie-poster-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  background: linear-gradient(135deg, #0f0f2a, #1a0a2e);
+}
+
+.movie-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(229, 9, 20, 0.85), transparent 50%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 20px;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+}
+
+.view-btn {
+  color: white;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.movie-genre-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 50px;
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  text-transform: uppercase;
+}
+
+.movie-info {
+  padding: 14px;
+}
+
+.movie-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.meta-tag {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  padding: 3px 8px;
+  border-radius: 50px;
+}
+
+.movie-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
