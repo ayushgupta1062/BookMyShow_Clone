@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:8080/api' });
-
+const API = axios.create({
+  baseURL: `${process.env.NEXT_PUBLIC_API_URL}/api`,
+});
 API.interceptors.request.use(config => {
   const token = localStorage.getItem('bms_token');
   if (token) config.headers.Authorization = `Bearer ${token}`;
